@@ -1,72 +1,38 @@
 // ProjectBuilder.js
+import ListBuilder from "./ListBuilder";
+import ButtonBuilder from "./ButtonBuilder";
+import Project from "./Project";
+import FormBuilder from "./FormBuilder";
 
 class ProjectBuilder {
+    createProjectElement() {
+      const aside = document.querySelector('aside');
 
-  createProjectElement() {
-    const project = document.createElement('li');
-    project.classList.add('project__item');
-    project.textContent = this.createTitleElement();
+      const container = document.createElement('div');
+      container.classList.add('project');
 
-    return project;    
-  }
+      const heading = document.createElement('h2');
+      heading.classList.add('project__heading');
+      heading.textContent = 'Projects';
 
-  createTitleElement(title) {
-    const header = document.createElement('h2');
-    header.classList.add('project__title');
-    header.textContent = title;
+      const form = FormBuilder.createFormElement();
 
-    return header;
-  }
+      const addProjectButton = ButtonBuilder.createDisplayElementButton(form, container);
+      addProjectButton.classList.add('project__add-button');
+      addProjectButton.textContent = 'Add Project';
 
-  createFormElement(submitButton, cancelButton) {
-    const form = document.createElement('form');
-    form.classList.add('form');
-  
-    const label = document.createElement('label');
-    label.classList.add('form__label');
-    label.htmlFor = "title";
-  
-    const input = document.createElement('input');
-    input.classList.add('form__input');
-    input.type = "text";
-    input.id = "title";
-    input.name = 'title';
-    input.required = true;
-  
-    form.appendChild(label);
-    label.appendChild(input);
-    label.appendChild(submitButton);
-    label.appendChild(cancelButton);
-  
-    return form;
-  }
+      const list = ListBuilder.createList();
+      list.classList.add('list');
 
-  createAddProjectButtonElement() {
-    const button = document.createElement('button');
-    button.classList.add('project__add-button');
-    button.setAttribute('type', 'button');
-    button.textContent = 'Add Project';
-
-    return button;
-  }
-
-  createSubmitButtonElement() {
-    const button = document.createElement('button');
-    button.classList.add('form__submit-button');
-    button.setAttribute('type', 'submit');
-    button.textContent = 'Add';
-
-    return button;
-  }
-
-  createCancelButtonElement() {
-    const button = document.createElement('button');
-    button.classList.add('form__cancel-button');
-    button.setAttribute('type', 'submit');
-    button.textContent = 'Cancel';
-    
-    return button;
-  }
+      const item = Project.createProjectELement('Init Project Title');
+      item.classList.add('list__item');
+      
+      aside.appendChild(container);
+      container.appendChild(heading);
+      container.appendChild(addProjectButton);
+      container.appendChild(list);
+      list.appendChild(item);
+    }
 }
 
 export default new ProjectBuilder();
