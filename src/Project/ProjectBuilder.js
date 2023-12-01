@@ -1,37 +1,67 @@
 // ProjectBuilder.js
-import ListBuilder from "./ListBuilder";
-import ButtonBuilder from "./ButtonBuilder";
-import Project from "./Project";
-import FormBuilder from "./FormBuilder";
+import Form from "./Form";
 
 class ProjectBuilder {
     createProjectElement() {
       const aside = document.querySelector('aside');
+      const container         = this.createContainer();
+      const heading           = this.createHeading();
+      const form              = Form.createFormElement();
+      const displayFormButton = this.createDisplayElementButton(form);
+      const list              = this.createList();
+      
+      const item = this.createProjectELement('Init Project Title');
+      
+      aside.appendChild(container);
+      container.appendChild(heading);
+      container.appendChild(displayFormButton);
+      container.appendChild(list);
+      list.appendChild(item);
+    }
 
+    createContainer() {
       const container = document.createElement('div');
       container.classList.add('project');
 
+      return container;
+    }
+
+    createHeading() {
       const heading = document.createElement('h2');
       heading.classList.add('project__heading');
       heading.textContent = 'Projects';
 
-      const form = FormBuilder.createFormElement();
+      return heading;
+    }
 
-      const addProjectButton = ButtonBuilder.createDisplayElementButton(form, container);
-      addProjectButton.classList.add('project__add-button');
-      addProjectButton.textContent = 'Add Project';
+    createDisplayElementButton(element) {
+      const button = document.createElement('button');
+      button.textContent = 'Add Project';
+      button.classList.add('project__display-form-button');
+      button.setAttribute('type', 'button');
+      button.addEventListener('click', () => this.insertElementAfterButton(element));
+  
+      return button;
+    }
 
-      const list = ListBuilder.createList();
+    createList() {
+      const list = document.createElement('ul');
       list.classList.add('list');
+  
+      return list;
+    }
 
-      const item = Project.createProjectELement('Init Project Title');
-      item.classList.add('list__item');
-      
-      aside.appendChild(container);
-      container.appendChild(heading);
-      container.appendChild(addProjectButton);
-      container.appendChild(list);
-      list.appendChild(item);
+    createProjectELement(title) {
+      const project = document.createElement('li');
+      project.classList.add('list__item')
+      project.textContent = title;
+      return project;
+    }
+
+    insertElementAfterButton(element) {
+      const button = document.querySelector('button');
+      const parent = button.parentElement;
+      parent.insertBefore(element, button.nextSibling);
     }
 }
 
