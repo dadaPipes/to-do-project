@@ -13,7 +13,7 @@ export default function handleProjectFormInput() {
  item.textContent = project.title;
 
  // append item to list
- document.querySelector(".list").appendChild(item);
- 
+ document.querySelector(".list").prepend(item);
+
  form.reset();
 }
