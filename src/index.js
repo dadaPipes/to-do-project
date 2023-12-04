@@ -1,11 +1,12 @@
 // index.js
-import handleProjectFormInput from "./Eventhandlers/handleProjectFormInput";
-import toggleForm from "./Eventhandlers/toggleForm";
-import cancelForm from "./Eventhandlers/cancelForm";
-import initProject from "./IInitData/initProject";
 
-initProject('Init title');
+import initProject from "./InitData/initProject";
+import handleToggleDisplayForm from "./Form/handleToggleDisplayForm";
+import handleSubmitForm from "./Form/handleSubmitForm";
+import handleCancelForm from "./Form/handleCancelForm";
 
-document.querySelector(".project__displayFormButton").addEventListener("click", toggleForm);
-document.querySelector('.form__add-button').addEventListener('click', handleProjectFormInput);
-document.querySelector('.form__cancel-button').addEventListener('click', cancelForm);
+initProject();
+
+document.querySelector(".project__form--display").addEventListener("click", handleToggleDisplayForm);
+document.querySelector('.form__submit').addEventListener('click', handleSubmitForm);
+document.querySelector('.form__cancel').addEventListener('click', handleCancelForm);

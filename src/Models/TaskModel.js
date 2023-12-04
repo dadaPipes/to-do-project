@@ -1,7 +1,9 @@
-// Task
+// TaskModel.js
+import generateUUID from "../Utils/generateUUID";
 
-class Task {
+class TaskModel {
   constructor(title, description, dueDate, priority) {
+    this.id = generateUUID();
     this.title = title;
     this.description = description;
     this.dueDate = dueDate;
@@ -9,4 +11,4 @@ class Task {
   }
 }
 
-export default Task;
+export default TaskModel;
