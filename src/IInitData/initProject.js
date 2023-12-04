@@ -1,5 +1,5 @@
 // initProject.js
-import ProjectModel from "../Project/ProjectModel";
+import ProjectModel from "../Models/Project";
 
 export default function initProject(title) {
   const project = new ProjectModel(title);
