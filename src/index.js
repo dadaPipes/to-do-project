@@ -1,9 +1,9 @@
 // index.js
 
 import initProject from "./InitData/initProject";
-import handleToggleDisplayForm from "./Form/handleToggleDisplayForm";
-import handleSubmitForm from "./Form/handleSubmitForm";
-import handleCancelForm from "./Form/handleCancelForm";
+import handleToggleDisplayForm from "./Events/handleToggleDisplayForm";
+import handleSubmitForm from "./Events/handleSubmitForm";
+import handleCancelForm from "./Events/handleCancelForm";
 
 initProject();
 

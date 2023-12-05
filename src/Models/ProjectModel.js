@@ -1,5 +1,3 @@
-// ProjectModel.js
-
 import generateUUID from "../Utils/generateUUID";
 
 class ProjectModel {
