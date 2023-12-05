@@ -1,7 +1,17 @@
+import handleToggleDisplayTask from "../Events/handleToggleDisplayTask";
+
 export function createTaskElement(task) {
-  const titleElement = document.createElement('h4');
+  const taskElement = document.createElement('div');
+  taskElement.classList.add('task');
+  
+  const titleElement = document.createElement('button');
   titleElement.classList.add('task__heading');
   titleElement.textContent = task.title || 'Default Title';
+  titleElement.addEventListener('click', () => handleToggleDisplayTask(titleElement));
+
+  const contentElement = document.createElement('div');
+  contentElement.classList.add('task__content');
+  contentElement.style.display = 'none';
 
   const descriptionElement = document.createElement('p');
   descriptionElement.classList.add('task__description');
@@ -22,13 +32,12 @@ export function createTaskElement(task) {
   priorityElement.classList.add('task__priority');
   priorityElement.textContent = `Priority: ${task.priority || 'Default Priority'}`;
 
-  const taskElement = document.createElement('div');
-  taskElement.classList.add('task');
   taskElement.appendChild(titleElement);
-  taskElement.appendChild(descriptionElement);
-  taskElement.appendChild(dueDateLabel);
-  taskElement.appendChild(dueDateElement);
-  taskElement.appendChild(priorityElement);
+  taskElement.appendChild(contentElement);
+  contentElement.appendChild(descriptionElement);
+  contentElement.appendChild(dueDateLabel);
+  contentElement.appendChild(dueDateElement);
+  contentElement.appendChild(priorityElement);
 
   return taskElement;
 }
