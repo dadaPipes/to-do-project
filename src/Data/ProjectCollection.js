@@ -14,6 +14,15 @@ class ProjectCollection {
     ProjectCollection.projects.push(project);
   }
 
+  getProjectById(id) {
+    const project = ProjectCollection.projects.find(project => project.id === id)
+    if(project === 'undefined') { 
+      alert('project does not exist')
+      return 
+    };
+    return project;
+  }
+
   getProjects() {
     return ProjectCollection.projects;
   }
