@@ -1,0 +1,49 @@
+/* projects.css */
+
+.projects__expand--visible {
+  display: block;
+}
+
+.projects__expand--hidden {
+  display: none;
+}
+
+.projects__delete {
+  display: none;
+}
+
+.projects__delete--visible {
+  display: block;
+}
+
+.projects__edit {
+  display: none;
+}
+
+.projects__edit--visible {
+  display: block;
+}
+
+.projects__project {
+  display: block;
+}
+
+.projects__project--hidden {
+  display: none;
+}
+
+.edit-form {
+  display: none;
+}
+
+.edit-form--visible {
+  display: block;
+}
+
+.projects__display {
+  display: block;
+}
+
+.projects__display--hidden {
+  display: none;
+}

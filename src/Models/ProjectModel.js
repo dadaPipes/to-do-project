@@ -17,6 +17,14 @@ class ProjectModel {
   addTask(task) {
     this.tasks.push(task);
   }
+
+  getTaskById(id) {
+    return this.tasks.find(task => task.id === id);
+  }
+  
+  updateProject(project, newProject) {
+    return project = newProject;
+  }
 }
 
 export default ProjectModel;

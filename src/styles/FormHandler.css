@@ -1,0 +1,13 @@
+/* FormHandler.css */
+
+.form__heading {
+  background-color: brown;
+}
+
+.form__content {
+  display: none;
+}
+
+.form__content--visible {
+  display: block;
+}
